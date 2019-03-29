@@ -1,0 +1,50 @@
+package company.Arrays;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MaxSequenceOfEqualElements {
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+
+
+            int[] numbers = Arrays.stream(scanner.nextLine().split(" "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+
+            int count =0;
+            int bestsequence =0;
+            int bestnumbers = 0;
+            int bestBestsequence = 0;
+
+            for (int i = 0; i <numbers.length ; i++) {
+                count++;
+                bestsequence = 0;
+                for (int j = i; j <numbers.length ; j++) {
+                    if (numbers[i] == numbers[j]) {
+                        bestsequence++;
+                        if (bestsequence > bestBestsequence){
+                            bestBestsequence = bestsequence;
+                            bestnumbers = numbers[i];
+                        }
+                    }
+                    else {
+                        break;
+                    }
+                }
+            }
+
+            for (int i = 0; i < bestBestsequence ; i++) {
+                System.out.print(bestnumbers + " ");
+            }
+
+
+
+
+
+
+
+        }
+    }
