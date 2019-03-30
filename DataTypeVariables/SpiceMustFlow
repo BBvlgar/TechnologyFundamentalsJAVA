@@ -1,0 +1,41 @@
+package Week2;
+
+import java.util.Scanner;
+
+public class SpiceMustFlow {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        int yield = Integer.parseInt(scanner.nextLine());
+
+
+        int days =0;
+
+        int consumed = 26;
+
+        int extracted =0;
+
+        while (yield >= 100){
+
+            extracted +=yield;
+
+            yield -=10;
+            days++;
+            extracted = extracted - consumed;
+
+        }
+        
+        if ( extracted >= consumed){
+            extracted -= consumed;
+        } else {
+            extracted =0;
+            consumed = extracted;
+        }
+
+        System.out.println(days);
+        System.out.println(extracted);
+
+
+    }
+}
