@@ -1,0 +1,66 @@
+package com.company;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Test {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String[] numbers = scanner.nextLine().split( "\\s+");
+
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0; i < numbers.length; i++) {
+            list.add(numbers[i]);
+        }
+        String input = "";
+        while (!"End".equals(input = scanner.nextLine())){
+            String[] command = input.split("\\s+");
+
+            switch (command[0]){
+                case "Add":
+                    list.add(command[1]);
+
+                    break;
+                case "Insert":
+                    //index out of bounds
+                    int num = Integer.parseInt(command[2]);
+                    if (num > list.size() || num < 0 ){
+                        System.out.println("Invalid index");
+                        break;
+                    }
+                    list.add(num,command[1]);
+
+                    break;
+                case "Remove":
+                    //index out of bounds
+                    int numRe = Integer.parseInt(command[1]);
+                    if (numRe > list.size() - 1 || numRe < 0 ){
+                        System.out.println("Invalid index");
+                        break;
+                    } else {
+                        list.remove(numRe);
+                    }
+                    break;
+                case "Shift":
+
+                    if (command[1].equals("left")){
+                        for (int i = 0; i <Integer.parseInt(command[2]); i++) {
+                            list.add(list.get(0));
+                            list.remove(0);
+                        }
+                    }else {
+                        for (int i = 0; i <Integer.parseInt(command[2]); i++) {
+                            list.add(0,list.get(list.size() - 1));
+                            list.remove(list.size() - 1);
+                        }
+
+                    }
+                    break;
+            }
+        }
+        System.out.println(list.toString().replaceAll("[\\[,\\]]",""));
+    }
+}
