@@ -1,0 +1,36 @@
+package Week2;
+import java.util.Scanner;
+
+public class Snowballs {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int snowballs = Integer.parseInt(scanner.nextLine());
+
+        double snowballValue =0;
+//(snowballSnow / snowballTime) ^ snowballQuality
+        double max =0;
+
+        int maxSnow=0;
+        int maxQuality=0;
+        int maxTime=0;
+        for (int i = 0; i < snowballs ; i++) {
+            int snowballSnow = Integer.parseInt(scanner.nextLine());
+            int snowTime = Integer.parseInt(scanner.nextLine());
+            int snowQuality = Integer.parseInt(scanner.nextLine());
+
+            snowballValue = Math.pow((snowballSnow / snowTime),snowQuality);
+
+            if (snowballValue >= max){
+                max = snowballValue;
+                maxQuality = snowQuality;
+                maxSnow = snowballSnow;
+                maxTime = snowTime;
+
+            }
+        }
+        //{snowballSnow} : {snowballTime} = {snowballValue} ({snowballQuality})
+        System.out.println(String.format("%d : %d = %.0f (%d)",maxSnow ,maxTime , max , maxQuality));
+
+}
+}
