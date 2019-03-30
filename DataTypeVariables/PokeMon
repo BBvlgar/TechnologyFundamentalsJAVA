@@ -1,0 +1,30 @@
+package Week2;
+import java.util.Scanner;
+
+public class PokeMon {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int NpokePower = Integer.parseInt(scanner.nextLine());
+        int Mdistance = Integer.parseInt(scanner.nextLine());
+        int YexhastionFactor = Integer.parseInt(scanner.nextLine());
+
+        int counter =0;
+
+        double percent = 1.0 * NpokePower / 2;
+
+        while (NpokePower >= Mdistance){
+
+            NpokePower -= Mdistance;
+
+            counter++;
+            if ( YexhastionFactor != 0) {
+                if (NpokePower == percent) {
+
+                   NpokePower /= YexhastionFactor;
+                }
+            }
+        }
+        System.out.printf("%d%n%d",NpokePower,counter);
+    }
+}
