@@ -1,0 +1,64 @@
+package company.AssArrays.MapLab;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Scanner;
+import static java.util.Comparator.comparingDouble;
+import static java.util.stream.Collectors.toMap;
+
+public class StudentsAcademyFull {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+        LinkedHashMap<String, ArrayList<Double>> map = new LinkedHashMap<String, ArrayList<Double>>();
+        for(int i=0; i<n; i++){
+            String name = scanner.nextLine();
+            double grade = Double.parseDouble(scanner.nextLine());
+
+            if(map.containsKey(name)){
+                ArrayList<Double> list = map.get(name);
+                list.add(grade);
+                map.put(name,list);
+            }
+            else{
+                ArrayList<Double> list = new ArrayList<Double>();
+                list.add(grade);
+                map.put(name,list);
+            }
+        }
+        LinkedHashMap<String, ArrayList<Double>> filtered = map.entrySet().stream()
+                .filter(x -> {
+                    ArrayList<Double> list = x.getValue();
+                    double average = 0;
+                    for(Double num:list){
+                        average+=num;
+                    }
+                    average/=list.size();
+                    if(average<4.50){
+                        return false;
+                    }
+                    return true;
+                })
+                .sorted(Collections.reverseOrder(comparingDouble(e->{
+                    ArrayList<Double> list = e.getValue();
+                    double average = 0;
+                    for(Double num: list){
+                        average+=num;
+                    }
+                    return average/=list.size();
+                })))
+                .collect(toMap(e -> e.getKey(), e -> e.getValue(), (e1, e2) -> e2,
+                        LinkedHashMap::new));
+
+        filtered.forEach((k,v) -> {
+            double average = 0;
+            for(Double num:v){
+                average+=num;
+            }
+            average/=v.size();
+            System.out.println(k + " -> " + String.format("%.2f",average));
+        });
+    }
+}
