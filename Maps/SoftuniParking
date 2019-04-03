@@ -1,0 +1,50 @@
+package company.AssArrays.MapLab;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class SoftuniPArking {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = Integer.parseInt(scanner.nextLine());
+
+        Map<String,String> cars = new LinkedHashMap<>();
+
+
+        for (int i = 0; i < n; i++) {
+
+            String[] data = scanner.nextLine().split("\\s+");
+
+            String comm = data[0];
+            String user = data[1];
+
+            if ("register".equals(comm)){
+                String plate = data[2];
+                if (!cars.containsKey(user)){
+                    cars.put(user,plate);
+                    System.out.println(user + " registered " + plate + " successfully");
+                } else {
+                    System.out.println("ERROR: already registered with plate number " + cars.get(user));
+                }
+            } else{
+
+                if (cars.containsKey(user)){
+                    cars.remove(user);
+                    System.out.println(user + " unregistered successfully");
+                } else {
+                    System.out.println(String.format("ERROR: user %s not found",user));
+                }
+
+            }
+        }
+        cars.forEach((k,v) -> {
+            System.out.println(String.format("%s => %s",k,v));
+        });
+
+
+
+
+    }
+}
