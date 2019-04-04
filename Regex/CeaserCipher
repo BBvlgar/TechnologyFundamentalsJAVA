@@ -1,0 +1,17 @@
+package com.company.Regex;
+
+import java.util.Scanner;
+
+public class CeaserCipher {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String oldWord = scanner.nextLine();
+        int newWord;
+
+        for (int i = 0; i < oldWord.length(); i++) {
+            newWord = oldWord.charAt(i) + 3;
+            System.out.print((char)newWord);
+        }
+    }
+}
