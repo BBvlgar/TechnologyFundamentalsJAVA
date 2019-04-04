@@ -1,0 +1,77 @@
+package com.company.Regex;
+
+import java.util.*;
+
+public class Concert02 {
+        public static void main(String[] args) {
+
+            Scanner scanner = new Scanner(System.in);
+
+            String input = "";
+
+            Map<String, ArrayList<String>> band = new LinkedHashMap<>();
+
+            Map<String,Integer> timePlay = new LinkedHashMap<>();
+
+            int totalTime = 0;
+
+            while (!"start of concert".equals(input = scanner.nextLine())){
+
+
+                String[] bandinput = input.split(";\\s+");;
+
+                String comm = bandinput[0];
+                String bandName = bandinput[1];
+                String timeOrMember = bandinput[2];
+
+                switch (comm){
+
+                    case "Add":
+
+                        if (!band.containsKey(bandName)){
+
+                            band.put(bandName, new ArrayList<>());
+                        }
+
+                        String[] members = timeOrMember.split(", ");
+
+                        for (int i = 0; i < members.length; i++) {
+
+                            if (!band.get(bandName).contains(members[i])){
+                                band.get(bandName).add(members[i]);
+                            }
+                        }
+
+                        break;
+                    case "Play":
+                        int time = Integer.parseInt(timeOrMember);
+
+                        if (!timePlay.containsKey(bandName)){
+
+                            timePlay.put(bandName,time);
+                        } else {
+                            timePlay.put(bandName, (timePlay.get(bandName)+ time));
+                        }
+
+                        totalTime += time;
+                        break;
+
+                }
+
+            }
+            String startingBand = scanner.nextLine();
+
+            System.out.println("Total time: " + totalTime);
+            timePlay.entrySet().stream()
+                    .sorted((e1,e2) -> e2.getValue().compareTo(e1.getValue()))
+                    .forEach(e -> System.out.println(e.getKey() +" -> " +e.getValue()));
+
+            System.out.println(startingBand);
+            band.get(startingBand).stream()
+                    .forEach(e -> System.out.println("=> " + e));
+
+
+
+
+        }
+    }
