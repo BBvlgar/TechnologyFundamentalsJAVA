@@ -1,0 +1,39 @@
+package com.company.Regex;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Furniture {
+    public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+
+    String input = scanner.nextLine();
+    String myRegex = "(^| )(>>)(?<item>[A-Za-z\\s]+)<<(?<price>\\d+(.\\d+)?)!(?<quantity>\\d+)";
+    List<String> purcahsedItems = new ArrayList<>();
+    double total = 0;
+
+    while (!"Purchase".equals(input)) {
+
+        Pattern pattern = Pattern.compile(myRegex);
+        Matcher matcher = pattern.matcher(input);
+        while (matcher.find()) {
+            String item = matcher.group("item");
+            double price = Double.parseDouble(matcher.group("price"));
+            int quantity = Integer.parseInt(matcher.group("quantity"));
+            double production = price * quantity;
+            purcahsedItems.add(item);
+            total += production;
+        }
+        input = scanner.nextLine();
+    }
+    System.out.println("Bought furniture:");
+    for (int i = 0; i < purcahsedItems.size(); i++) {
+        System.out.println(purcahsedItems.get(i));
+    }
+    System.out.println(String.format("Total money spend: %.2f", total));
+}
+}
