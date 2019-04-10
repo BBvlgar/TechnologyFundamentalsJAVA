@@ -1,0 +1,37 @@
+package com.company.AssArrays.MapLab;
+import java.util.*;
+
+public class Courses {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Map<String, TreeSet<String>> courseByStudents = new LinkedHashMap<>();
+
+        String input = "";
+        while (!"end".equals(input = scanner.nextLine())) {
+            String[] line = input.split(" : ");
+
+            courseByStudents.putIfAbsent(line[0], new TreeSet<>());
+            courseByStudents.get(line[0]).add(line[1]);
+
+            // Tuk sortirame Lista sus studenti po azbu4en red
+            //Collections.sort(courseByStudents.get(line[0]));
+        }
+
+        //        Collections.sort(al, Collections.reverseOrder());
+        //    Collections.sort(courseByStudents.get(line[0]),Collections.reverseOrder());
+        //      courseByStudents.get(line[0]).sort(Collections.reverseOrder());
+        
+        courseByStudents
+                .entrySet()
+                .stream()
+                ///// sortirame descending po duljina na lista
+                .sorted((x, y) -> Integer.compare(y.getValue().size(), x.getValue().size()))
+                .forEach(entry -> {
+                    System.out.println(String.format("%s: %d", entry.getKey(), entry.getValue().size()));
+                    entry.getValue().forEach(e -> {
+                        System.out.println("-- " + e);
+                    });
+                });
+    }
+}
