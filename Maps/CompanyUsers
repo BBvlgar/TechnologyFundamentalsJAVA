@@ -1,0 +1,55 @@
+package com.company.AssArrays.MapLab;
+import java.util.*;
+
+public class CompanyUsers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Map<String, List<String>> company = new TreeMap<>();
+
+        String input ="";
+
+        while (!"End".equals(input = scanner.nextLine())){
+
+            String[] data = input.split("\\s+->\\s+");
+
+            String name = data[0];
+            String id = data[1];
+
+            if (!company.containsKey(name)){
+
+                company.put(name, new ArrayList<>());
+            }
+            
+            if (!company.get(name).contains(id)) {
+                company.get(name).add(id);
+            }
+        }
+        company.entrySet()
+                .stream()
+                .forEach( e -> {
+
+                    System.out.println(e.getKey());
+
+                    e.getValue().forEach(b -> {
+                        System.out.println("-- "+ b);
+
+                    });
+
+                });
+
+/*
+courseByStudents
+                .entrySet()
+                .stream()
+                .sorted((x, y) -> Integer.compare(y.getValue().size(), x.getValue().size()))
+                .forEach(entry -> {
+                    System.out.println(String.format("%s: %d", entry.getKey(), entry.getValue().size()));
+                    entry.getValue().forEach(e -> {
+                        System.out.println("-- " + e);
+                    });
+                });
+ */
+
+    }
+}
