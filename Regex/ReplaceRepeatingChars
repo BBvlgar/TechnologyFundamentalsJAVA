@@ -1,0 +1,26 @@
+package com.company.Regex;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ReplaceReapeatingChars {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String str = scanner.nextLine();
+        List<Character> output = new ArrayList<>();
+        char[] inp = str.toCharArray();
+
+        output.add(inp[0]);
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i+1; j < str.length(); j++) {
+
+                if (inp[i] != inp[j]) {
+                    output.add(inp[j]);
+                    i = j;
+                }
+            }
+        }
+        System.out.println(output.toString().replaceAll("[\\[\\], ]",""));
+    }
+}
