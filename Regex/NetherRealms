@@ -1,0 +1,59 @@
+package com.company.Regex;
+
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class NetherRealm {
+    public static void main(String[] args) {
+
+    Scanner scanner = new Scanner(System.in);
+    String[] input = scanner.nextLine().split(",");
+
+    Map<String, List<Double>> output = new TreeMap<>();
+
+    Pattern dmgPattern = Pattern.compile("(-?\\d+\\.?\\d*)");
+
+        for (int i = 0; i < input.length; i++) {
+        String resultString="";
+        String currentDemon = input[i].replaceAll(" ", "");
+        output.put(currentDemon, new ArrayList<>());
+        double health = 0;
+        double damage = 0;
+        int divisionCount = currentDemon.replaceAll("[^/]", "").length();
+        int multiplicationCount = currentDemon.replaceAll("[^*]", "").length();
+
+
+        Pattern pattern = Pattern.compile("([^\\.\\/\\-+\\*0-9]*)");
+        Matcher matcher = pattern.matcher(currentDemon);
+        while (matcher.find()) {
+            resultString+=matcher.group();
+        }
+        for (int j = 0; j < resultString.length(); j++) {
+            int valueChar=resultString.charAt(j);
+            health+=valueChar;
+        }
+
+        output.get(currentDemon).add(health);
+
+        matcher = dmgPattern.matcher(currentDemon);
+
+        while (matcher.find()) {
+            damage += Double.parseDouble(matcher.group());
+        }
+
+        for (int j = 0; j < divisionCount; j++) {
+            damage /= 2;
+        }
+
+        for (int j = 0; j < multiplicationCount; j++) {
+            damage *= 2;
+        }
+
+        output.get(currentDemon).add(damage);
+    }
+
+        output
+                .forEach((key, value) -> System.out.printf("%s - %.0f health, %.2f damage%n", key, value.get(0),value.get(1)));
+}
+}
