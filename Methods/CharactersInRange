@@ -1,0 +1,31 @@
+package company.Methods;
+
+import java.util.Scanner;
+
+public class CharactersInRange {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String first = scanner.nextLine();
+        String second = scanner.nextLine();
+
+        char firstt = first.charAt(0);
+        char secondd = second.charAt(0);
+        charBetween(firstt,secondd);
+
+    }
+
+    static void charBetween(char first, char second){
+
+        int min = Math.min(first, second);
+        int max = first > second ? first : second;
+
+        for (int i = 1; i < max - min ; i++) {
+
+            System.out.printf("%c ",min + i);
+        }
+
+    }
+}
