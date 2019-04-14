@@ -1,0 +1,35 @@
+package company.Methods;
+import java.util.Scanner;
+public class VowelsCount {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String input = scanner.nextLine();
+
+        System.out.printf("%d",vowelsCount(input));
+
+    }
+
+    static int vowelsCount(String input){
+        int count =0;
+
+        input = input.toLowerCase();
+        for (int i = 0; i <input.length() ; i++) {
+
+
+        switch (input.charAt(i)){
+            case'a':
+            case'y':
+            case'i':
+            case'u':
+            case'o':
+            case'e':
+                count++;
+            break;
+        }
+        }
+
+        return count;
+    }
+}
