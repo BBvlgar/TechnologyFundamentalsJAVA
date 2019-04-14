@@ -1,0 +1,55 @@
+package company.ZZZFinalExam;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Second {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        // start end added ^$
+        String regex = "^([A-Za-z0-9!@#?$]+)=(\\d+)<<(.+)$";
+
+        Pattern pattern = Pattern.compile(regex);
+
+        String encrypted = "";
+
+        while (!"Last note".equals(encrypted =scanner.nextLine())) {
+
+            boolean found =false;
+            Matcher matcher = pattern.matcher(encrypted);
+
+            while (matcher.find()) {
+
+                String peak = matcher.group(1);
+                int size = Integer.parseInt(matcher.group(2));
+                String geohash = matcher.group(3);
+
+                if (geohash.length() == size) {
+
+                    String real = peak.replaceAll("[!#@?$]","");
+
+                    System.out.println(String.format("Coordinates found! %s -> %s",real,geohash));
+
+                    found = true;
+                }
+            }
+
+            if (!found) {
+                System.out.println("Nothing found!");
+            }
+        }
+        //String regex = "^[d-z|{}#]+$";
+        //
+        //        Pattern pattern = Pattern.compile(regex);
+        //
+        //        Matcher matcher = pattern.matcher(encrypted);
+        //
+        //        if (matcher.find()) {
+        //            }
+
+    }
+
+}
