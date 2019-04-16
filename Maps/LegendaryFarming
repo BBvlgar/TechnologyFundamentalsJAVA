@@ -1,0 +1,90 @@
+package com.company.Maps.MapsLab;
+
+import java.util.Comparator;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
+
+public class LegendaryFarming {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Map<String, Integer> keyMat = new TreeMap<>();
+        Map<String, Integer> junks = new TreeMap<>();
+
+        keyMat.put("shards", 0);
+        keyMat.put("fragments", 0);
+        keyMat.put("motes", 0);
+
+        int num = 0;
+
+        boolean flag = false;
+
+        String winner = "";
+        do {
+            String[] data = scanner.nextLine().split("\\s+");
+
+            for (int i = 0; i < data.length; i += 2) {
+
+                int quanitiy = Integer.parseInt(data[i]);
+                String material = data[i + 1].toLowerCase();
+
+                if (!keyMat.containsKey(material)) {
+
+                    if (!junks.containsKey(material)) {
+                        junks.put(material, quanitiy);
+                    } else {
+                        junks.put(material, junks.get(material) + quanitiy);
+                    }
+
+                } else {
+                    keyMat.put(material, keyMat.get(material) + quanitiy);
+
+                    if (keyMat.get(material) >= 250) {
+
+                        keyMat.put(material, keyMat.get(material) - 250);
+                        winner = material;
+
+                        flag = true;
+                        break;
+                    }
+                }
+            }
+        } while (!flag);
+
+        if (winner.equals("shards")){
+            System.out.println("Shadowmourne obtained!");
+
+        } else if (winner.equals("motes")){
+            System.out.println("Dragonwrath obtained!");
+
+        } else if (winner.equals("fragments")){
+            System.out.println("Valanyr obtained!");
+        }
+
+        keyMat.entrySet().stream()
+                .sorted((e1,e2) -> {
+                    int sort = Integer.compare(e2.getValue(), e1.getValue());
+
+                    if (sort == 0){
+                       sort = e1.getKey().compareTo(e2.getKey());
+                    }
+                    return sort;
+                })
+                .forEach(e -> {
+                    System.out.println(String.format("%s: %d", e.getKey(), e.getValue()));
+                });
+
+        junks.entrySet().stream()
+                .sorted(Comparator.comparing(Map.Entry::getKey)
+                )
+                .forEach( e -> System.out.println(String.format("%s: %d", e.getKey(), e.getValue())));
+
+        /////// Alternativno na gornoto
+        ///junks.entrySet().stream()
+        //                .sorted((e1,e2) ->
+        //                    e1.getKey().compareTo(e2.getKey())
+        //                );
+        }
+    }
+
