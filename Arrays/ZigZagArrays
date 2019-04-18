@@ -1,0 +1,41 @@
+package com.company.ArraysLabEasy;
+import java.util.*;
+
+public class ZigZag {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        int n = Integer.parseInt(scanner.nextLine());
+
+        List<String> lists =new ArrayList<>();
+
+        for (int i = 1; i <= n ; i++) {
+
+            String[] arr = scanner.nextLine().split(" ");
+
+            if (i % 2 == 1) {
+                lists.add(arr[0]);
+                lists.add(arr[1]);
+            } else {
+                lists.add(arr[1]);
+                lists.add(arr[0]);
+            }
+        }
+        for (int i = 0; i < lists.size(); i++) {
+
+            if (i % 2 == 0) {
+                System.out.print(lists.get(i) + " ");
+            }
+
+        }
+        System.out.println();
+        for (int i = 0; i < lists.size(); i++) {
+
+            if (i % 2 == 1) {
+                System.out.print(lists.get(i) + " ");
+            }
+        }
+       
+    }
+}
