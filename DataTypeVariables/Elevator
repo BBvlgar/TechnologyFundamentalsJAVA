@@ -1,0 +1,20 @@
+package Week2;
+
+import java.util.Scanner;
+
+public class Elevator {
+    public static void main(String[] args) {
+        // write your code here
+        Scanner scanner = new Scanner(System.in);
+
+        // String num1 = scanner.nextLine();
+        int people = Integer.parseInt(scanner.nextLine());
+        int capacity = Integer.parseInt(scanner.nextLine());
+
+        int courses = people / capacity;
+        if ( people % capacity != 0){
+            courses++;
+        }
+            System.out.println(courses);
+    }
+}
