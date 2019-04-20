@@ -1,0 +1,52 @@
+package company.ZZZFinalExam;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class First {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        Map<String,List<String>> storeItems = new LinkedHashMap<>();
+
+        String input ="";
+
+        /// END ili End
+        while (!"END".equals(input = scanner.nextLine())){
+
+            String[] separator = input.split("->");
+            String comm = separator[0];
+            String store = separator[1];
+
+            if (comm.equals("Add")) {
+                String[] items = separator[2].split(",");
+                if (!storeItems.containsKey(store)) {
+                    storeItems.put(store, new ArrayList<>());
+                }
+                for (int i = 0; i < items.length; i++) {
+
+                    storeItems.get(store).add(items[i]);
+                }
+            } else {
+                storeItems.remove(store);
+            }
+        }
+        //In the end, print the collection sorted by the count of the items in descending order
+        // and then by the names of the stores, again, in descending order in the following format:
+        System.out.println("Stores list:");
+        storeItems.entrySet()
+                .stream()
+                .sorted((e1,e2) -> {
+                    int sort = e2.getValue().size() - e1.getValue().size();
+
+                    if (sort ==0){
+                        sort = e2.getKey().compareTo(e1.getKey());
+                    }
+                    return sort;
+                })
+                .forEach(e -> {System.out.println(e.getKey());
+                e.getValue().stream()
+                        .forEach(w -> System.out.println("<<" + w + ">>"));
+                });
+    }
+}
