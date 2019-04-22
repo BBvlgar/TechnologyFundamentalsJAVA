@@ -1,0 +1,18 @@
+package com.company.Regex;
+
+import java.util.Scanner;
+
+public class FileExtract {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String input =scanner.nextLine();
+
+        String ext = input.substring(input.lastIndexOf(".") + 1);
+
+        String fileName = input.substring(input.lastIndexOf("\\")+ 1,input.lastIndexOf("."));
+
+        System.out.println(String.format("File name: %s",fileName));
+        System.out.println(String.format("File extension: %s",ext));
+    }
+}
