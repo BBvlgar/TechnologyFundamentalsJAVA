@@ -1,0 +1,18 @@
+package com.company.Week4;
+import java.util.Scanner;
+
+public class AddandSubtract {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int first = Integer.parseInt(scanner.nextLine());
+        int second = Integer.parseInt(scanner.nextLine());
+        int third = Integer.parseInt(scanner.nextLine());
+    
+        
+        int sum = first +second - third;
+
+
+        System.out.printf("%d",sum);
+    }
+}
