@@ -1,0 +1,245 @@
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
+public class Smetka {
+
+    public static void main(String[] args) {
+
+            Scanner scanner = new Scanner(System.in);
+
+           String texta = "Solid experience with Java\n" +
+                   "Experience with relational (e.g. MySQL, PostgreSQL) and NoSQL (e.g. MongoDB, ElasticSearch) databases\n" +
+                   "Good knowledge of RESTful APIs, their design and implementation\n" +
+                   "Experience with web development (with Java, PHP) is a big plus\n" +
+                   "Knowledge of Docker and containerization a big plus\n" +
+                   "Experience with building and/or running large-scale applications on a PaaS/SaaS cloud, preferably AWS, is a plus\n" +
+                   "Familiarity with Spring is a plus\n" +
+                   "English language fluency\n" +
+                   "12 hours ago\n" +
+                   "Denislav said\n" +
+                   "5+ years experience with JavaScript\n" +
+                   "Experience in developing cross-browser web applications\n" +
+                   "Expert level in HTML5/CSS3\n" +
+                   "Strong knowledge of JavaScript OOP Design Patterns\n" +
+                   "Experience with one of the following: Angular, React.JS or Vue.JS\n" +
+                   "Good communication skills\n" +
+                   "Excellent spoken and written English\n" +
+                   "Responsible and team-oriented person\n" +
+                   "BS/MS Degree in Computer Science or equivalent\n" +
+                   "A significant advantage would be an experience with:\n" +
+                   "Developing mobile hybrid applications\n" +
+                   "Node.js or other back-end technology (Ruby, Python, PHP, .NET)\n" +
+                   "MongoDB or other NoSQL database\n" +
+                   "SQL databases like PostgreSQL\n" +
+                   "3rd party APIs like Facebook, Twitter, Google APIs\n" +
+                   "14 hours ago\n" +
+                   "Denislav said\n" +
+                   "6+ years of commercial software development in Java/Linux\n" +
+                   "Bachelor degree or higher in CS, EE or related field of study\n" +
+                   "In-depth experience with JUnit or TestNG, Gatling or Jmeter, mocking components and Jenkins.\n" +
+                   "Commercial experience with Java 8 development and testing of an enterprise-grade SaaS and on-prem product of 30K+ lines of code.\n" +
+                   "Demonstrable understanding of Linux, networking, and security.\n" +
+                   "Experience creating comprehensive functional and non-functional test plans, and developing and executing automated and manual test cases.\n" +
+                   "Practical knowledge of provisioning and setup of test infrastructure in VMware ESX and AWS.\n" +
+                   "Working understanding of Agile and TDD.\n" +
+                   "Proficient verbal and written English communication.\n" +
+                   "14 hours ago\n" +
+                   "Denislav said\n" +
+                   "-Expert understanding of Java\n" +
+                   "-Knowledge of Spring / Spring MVC Framework\n" +
+                   "-An understanding of Cassandra and NoSQL Databases\n" +
+                   "-Understanding of unit testing and version control\n" +
+                   "-Familiar with Agile software development methodologies\n" +
+                   "-Willingness to understand larger business context\n" +
+                   "-Desire to work in a fast paced, tech and product oriented company\n" +
+                   "Desirable\n" +
+                   "-Understanding of Scala\n" +
+                   "-Understanding of Elastic Search\n" +
+                   "14 hours ago\n" +
+                   "Denislav said\n" +
+                   "experience with Java and related technologies. Experience in C++, Python, Go is plus.\n" +
+                   "Very strong skills in algorithms and data structures.\n" +
+                   "Experience in design and implementation of large-scale distributed systems and RESTful services.\n" +
+                   "Knowledge in microservices, containers, k8s, and popular cloud services frameworks.\n" +
+                   "Systematic problem-solving approach, coupled with strong sense of ownership and drive.\n" +
+                   "Excellent skills in Agile, documenting code and change management.\n" +
+                   "14 hours ago\n" +
+                   "Denislav said\n" +
+                   "3+ years of commercial projects using Java technologies\n" +
+                   "Strong knowledge in Java,JavaEE, EJB\n" +
+                   "Good knowledge in JavaScript, Typescript, Angular, XPath, HTML\n" +
+                   "Knowledge in RDBMS\n" +
+                   "Knowledge in Java design patterns, algorithms and data structures\n" +
+                   "Experience with JUnit and Mockito\n" +
+                   "Willingness to extend your personal portfolio with projects for the BIG players: BMW, Vodafone, Allianz, SIXT, Swisscom and more\n" +
+                   "Very good communication skills\n" +
+                   "Bachelor or Master degree in IT field or similar\n" +
+                   "Fluent English\n" +
+                   "14 hours ago\n" +
+                   "Denislav said\n" +
+                   "1+ year of experience developing with a mix of languages (Java, Scala, Bash, etc.) and frameworks to implement data ingest, processing and serving technologies. Experience with real-time and very large scalable online systems are preferred.\n" +
+                   "Have a technology toolbox – Hands-on experience with newer technologies relevant to the data space such as Apache Flink, Kafka, Storm/Spark.\n" +
+                   "Problem solver – Enjoy new and meaningful technology or business challenges which require you to think and respond quickly.\n" +
+                   "Passion and creativity – Are passionate about data, technology, & creative innovation.\n" +
+                   "Fluent in English - written and verbal.\n" +
+                   "14 hours ago\n" +
+                   "Denislav said\n" +
+                   "Java SE\n" +
+                   "SQL\n" +
+                   "XML\n" +
+                   "Experience in one or more of the following tools and technologies will be considered as a plus:\n" +
+                   "J2EE/Java EE (JPA 1.0, JSP, Servlets 2.5, EJB 2.1 and EJB 3.0, Web Services)\n" +
+                   "Hibernate 3.x, Struts 1.0, Tapestry 4.1\n" +
+                   "Oracle, PL/SQL\n" +
+                   "UML, Design Patterns\n" +
+                   "JUnit\n" +
+                   "HTML,Java Script, CSS\n" +
+                   "14 hours ago\n" +
+                   "Denislav said\n" +
+                   "•\t\n" +
+                   "Understanding of core Java (collections, I/O, concurrency, generics)\n" +
+                   "•\t\n" +
+                   "Spring Framework (Spring Boot, Spring Data, Spring Security)\n" +
+                   "•\t\n" +
+                   "Test frameworks - JUnit, Mockito, Spring MVC\n" +
+                   "•\t\n" +
+                   "SQL (MySQL or other RDBMS), Hibernate\n" +
+                   "•\t\n" +
+                   "HTML, JavaScript, CSS\n" +
+                   "•\t\n" +
+                   "Design of REST API-s, OAuth 2.0\n" +
+                   "•\t\n" +
+                   "5+ years experience with some of the above\n" +
+                   "\n" +
+                   "Any of the following is a plus:\n" +
+                   "\n" +
+                   "•\t\n" +
+                   "Angular 2+, Typescript, Jasmine, Karma\n" +
+                   "•\t\n" +
+                   "Android (Kotlin), Roboelectric\n" +
+                   "•\t\n" +
+                   "Kafka, Jenkins, Kubernetes, Gradle, Docker\n" +
+                   "•\t\n" +
+                   "Experience in cloud environment, preferably GCloud\n" +
+                   "•\t\n" +
+                   "Prometheus, Grafana, Alert Manager\n" +
+                   "•\t\n" +
+                   "GitHub or Stackoverflow account\n" +
+                   "15 hours ago\n" +
+                   "Denislav said\n" +
+                   "5+ years of professional experience in server-side development with Java;\n" +
+                   "⦁    Spring, Spring Boot;\n" +
+                   "⦁    RESTful APIs;\n" +
+                   "⦁    Any relational DB: MySQL, PostgreSQL, MariaDB;\n" +
+                   "⦁    Very good communication skills;\n" +
+                   "⦁    Very good English.\n" +
+                   "Bonus points:\n" +
+                   "⦁    AWS;\n" +
+                   "⦁    Docker;\n" +
+                   "⦁    Unit testing;\n" +
+                   "⦁    Continuous integration.\n" +
+                   "16 hours ago\n" +
+                   "Denislav said\n" +
+                   "We are currently looking for several JAVA Frontend and Backend Developers to join our team.\n" +
+                   "\n" +
+                   "Main Tasks - Frontend Developer:\n" +
+                   "--------------------------------------------\n" +
+                   "•\t\n" +
+                   "Experience in developing JAVA Frontend applications with Angular and React\n" +
+                   "•\t\n" +
+                   "Design / UX\n" +
+                   "•\t\n" +
+                   "Good Experience with SCRUM and Agile\n" +
+                   "\n" +
+                   "Main Tasks - Backend Developer:\n" +
+                   "--------------------------------------------\n" +
+                   "•\t\n" +
+                   "Experience in developing Fullstack JEE application\n" +
+                   "•\t\n" +
+                   "Focus on Spring Boot, Docker, MS-SQL\n" +
+                   "•\t\n" +
+                   "Good Experience with SCRUM and Agile\n" +
+                   "\n" +
+                   "Your profile:\n" +
+                   "----------------\n" +
+                   "•\t\n" +
+                   "Knowledge of JIRA or similar tools\n" +
+                   "•\t\n" +
+                   "Familiar with Relational Databases and Web Services;\n" +
+                   "12 days ago\n" +
+                   "Denislav said\n" +
+                   "Good or Excellent knowledge of JavaScript (Angular / TypeScript / React) development \n" +
+                   "Good or Excellent knowledge of CSS, HTML and Sass \n" +
+                   "1-2 years experience\n" +
+                   "Very good German (written and spoken)\n" +
+                   "Motivation. Passion to learn new things\n" +
+                   "Logical Thinking and problem-solving skills \n" +
+                   "\n" +
+                   "This would be helpful:\n" +
+                   "JavaScript Technology and Frameworks \n" +
+                   "Experience with agile dev.methodology (SCRUM) \n" +
+                   "Interest in PHP, MySQL, jQuery, Backbone js, Ansible, Linux\n" +
+                   "University degree Computer science or equivalent\n" +
+                   "Good Englisch skills\n" +
+                   "12 days ago\n" +
+                   "Denislav said\n" +
+                   "Demonstrated experience in web development: Java, HTML5, CSS3, Javascript.\n" +
+                   "Good understanding of SQL and authentication frameworks is advantageous.\n" +
+                   "Demonstrated experience in SAP Cloud, SAPUI5, Fiori, HANA XSC and/or XSA.\n" +
+                   "The ability to understand processes and applications, and to be able to communicate requirements, as well as high-level concept and architecture is highly advantageous.\n" +
+                   "Degree in Informatics or a related field would be considered advantageous.\n" +
+                   "Excellent command of English is a requirement, and working knowledge of German is advantageous.\n" +
+                   "15 days ago\n" +
+                   "Denislav said\n" +
+                   "⦁    5+ years of professional experience in server-side development with Java;\n" +
+                   "⦁    Spring, Spring Boot;\n" +
+                   "⦁    RESTful APIs;\n" +
+                   "⦁    Any relational DB: MySQL, PostgreSQL, MariaDB;\n" +
+                   "⦁    Very good communication skills;\n" +
+                   "⦁    Very good English.\n" +
+                   "Bonus points:\n" +
+                   "⦁    AWS;\n" +
+                   "⦁    Docker;\n" +
+                   "⦁    Unit testing;\n" +
+                   "⦁    Continuous integration.\n" +
+                   "21 days ago\n" +
+                   "Denislav said\n" +
+                   "OOP - Baza DAnni - HTTP\n" +
+                   "Trello, MeisterTask и ZenHub, до по-сложните интегрирани системи като Jira.";
+
+           texta = texta.toLowerCase().replaceAll("[^A-Za-z\\s+]"," ");
+           texta = texta.toLowerCase().replaceAll("javascript","js");
+           texta = texta.toLowerCase().replaceAll("javaee","jee");
+
+           String textafull = texta;
+
+           String input = scanner.nextLine();
+
+           char[] ima = input.toCharArray();
+
+           int count = 0;
+
+           int indexa = 0;
+
+        while (!input.equals("exit")){
+
+            if (!texta.contains(input)){
+                System.out.println(input + " -->" + count);
+
+                input = scanner.nextLine();
+                count = 0;
+
+                texta = textafull;
+                continue;
+            }
+
+            indexa = texta.indexOf(input)+ input.length();
+
+            texta = texta.substring(indexa);
+
+            count++;
+
+        }
+
+        }
+    }
