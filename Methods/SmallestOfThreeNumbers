@@ -1,0 +1,33 @@
+package com.company.Week3;
+
+import java.util.Scanner;
+
+public class SmallestOfThree {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int number1 = Integer.parseInt(scanner.nextLine());
+        int number2 = Integer.parseInt(scanner.nextLine());
+        int number3 = Integer.parseInt(scanner.nextLine());
+
+        System.out.printf("%d",smallestNumber(number1,number2,number3));
+        
+    }
+    static int smallestNumber(int first,int second,int third){
+
+        if (first > second && first > third){
+
+            if (second > third){
+                return third;
+            } else {
+                return second;
+            }
+        } else {
+            return first;
+        }
+
+    }
+
+}
